@@ -1,0 +1,211 @@
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  height: 83px;
+
+  background: #14243e;
+
+  width: 100%;
+
+  position: relative;
+
+  z-index: 100;
+}
+
+.navbar-container {
+  height: 100%;
+
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  padding: 0 62px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.navbar-logo {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 40px;
+
+  height: 40px;
+
+  border-radius: 11px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #0870ef;
+
+  color: white;
+
+  font-size: 23px;
+}
+
+.logo-text {
+  color: white;
+
+  font-size: 20px;
+
+  font-weight: 700;
+}
+
+.logo-text span {
+  color: #0870ef;
+}
+
+
+/* =========================
+   ACTIONS
+========================= */
+
+.navbar-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 26px;
+}
+
+
+/* Sign in */
+
+.signin-link {
+  border: none;
+
+  background: transparent;
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 17px;
+
+  cursor: pointer;
+
+  padding: 10px 0;
+
+  transition: opacity 0.2s ease;
+}
+
+.signin-link:hover {
+  opacity: 0.75;
+}
+
+
+/* Login */
+
+.login-button {
+  border: none;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 14px 20px;
+
+  min-width: 88px;
+
+  border-radius: 12px;
+
+  background: #0870ef;
+
+  color: white;
+
+  font-family: inherit;
+
+  font-size: 17px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.login-button:hover {
+  background: #0862d3;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+  .navbar {
+    height: 70px;
+  }
+
+  .navbar-container {
+    padding: 0 20px;
+  }
+
+  .logo-icon {
+    width: 36px;
+
+    height: 36px;
+
+    font-size: 20px;
+  }
+
+  .logo-text {
+    font-size: 18px;
+  }
+
+  .navbar-actions {
+    gap: 12px;
+  }
+
+  .signin-link {
+    font-size: 15px;
+  }
+
+  .login-button {
+    padding: 10px 15px;
+
+    min-width: auto;
+
+    font-size: 15px;
+  }
+}
+
+
+@media (max-width: 430px) {
+
+  .signin-link {
+    display: none;
+  }
+
+  .navbar-container {
+    padding: 0 16px;
+  }
+}

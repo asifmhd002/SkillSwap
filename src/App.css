@@ -1,0 +1,650 @@
+/* =========================
+
+   GLOBAL
+
+========================= */
+
+* {
+
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+}
+
+html {
+
+  scroll-behavior: smooth;
+
+  width: 100%;
+
+}
+
+body {
+
+  width: 100%;
+
+  min-width: 100%;
+
+  min-height: 100vh;
+
+  font-family:
+
+    Inter,
+
+    -apple-system,
+
+    BlinkMacSystemFont,
+
+    "Segoe UI",
+
+    sans-serif;
+
+  background: #ffffff;
+
+  color: #14213d;
+
+  overflow-x: hidden;
+
+}
+
+/* Make the React application use the full browser width */
+
+.app {
+
+  width: 100%;
+
+  max-width: none;
+
+  min-height: 100vh;
+
+  margin: 0;
+
+  padding: 0;
+
+  overflow-x: hidden;
+
+}
+
+button {
+
+  font-family: inherit;
+
+}
+
+/* =========================
+
+   HERO
+
+========================= */
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  min-height: 700px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  /* HERO BACKGROUND IMAGE */
+  background-image:
+    
+    url("./assets/skillswaphomeintroimage.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 100px 24px 120px;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 1050px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  text-align: center;
+
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================
+
+   BADGE
+
+========================= */
+
+.hero-badge {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 8px 16px;
+
+  border: 1px solid #dbe4f4;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.75);
+
+  color: #0865e5;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  margin-bottom: 32px;
+
+}
+
+.sparkle {
+
+  font-size: 18px;
+
+}
+
+/* =========================
+
+   HERO HEADING
+
+========================= */
+
+.hero h1 {
+
+  font-size: clamp(58px, 7vw, 92px);
+
+  line-height: 0.98;
+
+  letter-spacing: -4px;
+
+  font-weight: 750;
+
+  color: #13213d;
+
+  max-width: 1000px;
+
+}
+
+.hero h1 span {
+
+  display: block;
+
+  color: #0865e5;
+
+  margin-top: 10px;
+
+}
+
+/* =========================
+
+   HERO PARAGRAPH
+
+========================= */
+
+.hero-description {
+
+  max-width: 720px;
+
+  margin-top: 38px;
+
+  color: #55708f;
+
+  font-size: 20px;
+
+  line-height: 1.7;
+
+}
+
+/* =========================
+
+   CTA
+
+========================= */
+
+.primary-button {
+
+  margin-top: 48px;
+
+  border: none;
+
+  padding: 18px 25px;
+
+  min-width: 250px;
+
+  border-radius: 13px;
+
+  background: #0969e8;
+
+  color: white;
+
+  font-size: 17px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 16px;
+
+  box-shadow:
+
+    0 10px 24px rgba(9, 105, 232, 0.18);
+
+  transition:
+
+    transform 0.2s ease,
+
+    box-shadow 0.2s ease,
+
+    background 0.2s ease;
+
+}
+
+.primary-button:hover {
+
+  background: #075bc9;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+
+    0 14px 30px rgba(9, 105, 232, 0.25);
+
+}
+
+.arrow {
+
+  font-size: 22px;
+
+}
+
+/* =========================
+
+   FEATURES
+
+========================= */
+
+.features-section {
+
+  background: #ffffff;
+
+  padding: 68px 24px 100px;
+
+}
+
+/* Section heading */
+
+.section-heading {
+
+  text-align: center;
+
+  max-width: 650px;
+
+  margin: 0 auto 62px;
+
+}
+
+.section-heading h2 {
+
+  font-size: 30px;
+
+  line-height: 1.25;
+
+  color: #12213e;
+
+  font-weight: 700;
+
+  letter-spacing: -0.8px;
+
+}
+
+.section-heading p {
+
+  margin-top: 12px;
+
+  color: #68809d;
+
+  font-size: 17px;
+
+  line-height: 1.5;
+
+}
+
+/* Feature cards */
+
+.features-container {
+
+  max-width: 1215px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+
+}
+
+.feature-card {
+
+  min-height: 265px;
+
+  padding: 31px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e8f2;
+
+  border-radius: 17px;
+
+  box-shadow:
+
+    0 15px 35px rgba(33, 61, 100, 0.08);
+
+  transition:
+
+    transform 0.25s ease,
+
+    box-shadow 0.25s ease;
+
+}
+
+.feature-card:hover {
+
+  transform: translateY(-5px);
+
+  box-shadow:
+
+    0 20px 45px rgba(33, 61, 100, 0.13);
+
+}
+
+/* Icons */
+
+.feature-icon {
+
+  width: 50px;
+
+  height: 50px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: #edf2ff;
+
+  color: #0869ed;
+
+  margin-bottom: 27px;
+
+}
+
+.feature-icon svg {
+
+  width: 24px;
+
+  height: 24px;
+
+}
+
+/* Card content */
+
+.feature-card h3 {
+
+  color: #12213e;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  margin-bottom: 14px;
+
+}
+
+.feature-card p {
+
+  color: #617996;
+
+  font-size: 17px;
+
+  line-height: 1.75;
+
+}
+
+/* =========================
+
+   CATEGORIES
+
+========================= */
+
+.categories-section {
+
+  border-top: 1px solid #e5ebf3;
+
+  padding: 72px 24px 78px;
+
+  background: #ffffff;
+
+  text-align: center;
+
+}
+
+.categories-label {
+
+  color: #91a4bd;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+}
+
+.categories-list {
+
+  max-width: 720px;
+
+  margin: 35px auto 0;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 45px;
+
+}
+
+.category-item {
+
+  border: none;
+
+  background: transparent;
+
+  color: #506a88;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  padding: 5px;
+
+  transition:
+
+    color 0.2s ease,
+
+    transform 0.2s ease;
+
+}
+
+.category-item:hover {
+
+  color: #0869ed;
+
+  transform: translateY(-2px);
+
+}
+
+/* =========================
+
+   RESPONSIVE
+
+========================= */
+
+@media (max-width: 900px) {
+
+  .hero {
+
+    min-height: 650px;
+
+    padding-top: 80px;
+
+  }
+
+  .hero h1 {
+
+    letter-spacing: -3px;
+
+  }
+
+  .features-container {
+
+    grid-template-columns: 1fr;
+
+    max-width: 600px;
+
+  }
+
+  .feature-card {
+
+    min-height: auto;
+
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .hero {
+
+    min-height: 600px;
+
+    padding:
+
+      65px 20px
+
+      80px;
+
+  }
+
+  .hero-badge {
+
+    margin-bottom: 25px;
+
+  }
+
+  .hero h1 {
+
+    font-size: 50px;
+
+    letter-spacing: -2.5px;
+
+  }
+
+  .hero-description {
+
+    font-size: 17px;
+
+    margin-top: 28px;
+
+  }
+
+  .primary-button {
+
+    margin-top: 35px;
+
+    width: 100%;
+
+    max-width: 280px;
+
+  }
+
+  .features-section {
+
+    padding:
+
+      55px 20px
+
+      70px;
+
+  }
+
+  .section-heading h2 {
+
+    font-size: 26px;
+
+  }
+
+  .section-heading p {
+
+    font-size: 16px;
+
+  }
+
+  .feature-card {
+
+    padding: 26px;
+
+  }
+
+  .categories-section {
+
+    padding:
+
+      55px 20px
+
+      60px;
+
+  }
+
+  .categories-list {
+
+    gap: 20px 28px;
+
+  }
+
+  .category-item {
+
+    font-size: 15px;
+
+  }
+
+}
