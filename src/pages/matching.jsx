@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import ViewAvailabilityModal from "../components/ViewAvailabilityModal";
+import API_BASE_URL from "../api";
 import "./matching.css";
 
 function Matching() {
@@ -23,7 +24,7 @@ function Matching() {
 
       try {
         const response = await fetch(
-          "http://127.0.0.1:5000/api/matches",
+          `${API_BASE_URL}/api/matches`,
           {
             method: "GET",
             headers: {
@@ -66,7 +67,7 @@ function Matching() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:5000/api/messages/conversations",
+        `${API_BASE_URL}/api/messages/conversations`,
         {
           method: "POST",
           headers: {

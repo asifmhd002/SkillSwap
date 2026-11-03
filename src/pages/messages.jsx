@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
+import API_BASE_URL from "../api";
 import "./messages.css";
 
 function Messages() {
@@ -65,7 +66,7 @@ function Messages() {
         // -----------------------------------------
 
         const userResponse = await fetch(
-          "http://127.0.0.1:5000/api/auth/me",
+          `${API_BASE_URL}/api/auth/me`,
           {
             headers: {
               Authorization: "Bearer " + token,
@@ -89,7 +90,7 @@ function Messages() {
         // -----------------------------------------
 
         const conversationResponse = await fetch(
-          "http://127.0.0.1:5000/api/messages/conversations",
+          `${API_BASE_URL}/api/messages/conversations`,
           {
             headers: {
               Authorization: "Bearer " + token,
@@ -240,7 +241,7 @@ if (requestedConversationId) {
         const token = localStorage.getItem("token");
 
         const response = await fetch(
-          `http://127.0.0.1:5000/api/messages/conversations/${selectedConversation.id}`,
+          `${API_BASE_URL}/api/messages/conversations/${selectedConversation.id}`,
           {
             headers: {
               Authorization: "Bearer " + token,
@@ -321,7 +322,7 @@ if (requestedConversationId) {
 
 
       const response = await fetch(
-        `http://127.0.0.1:5000/api/messages/conversations/${selectedConversation.id}`,
+        `${API_BASE_URL}/api/messages/conversations/${selectedConversation.id}`,
         {
           method: "POST",
 
@@ -432,7 +433,7 @@ if (requestedConversationId) {
     // For now, the logged-in user is the learner
     // and the person they are chatting with is the teacher.
     const response = await fetch(
-      "http://127.0.0.1:5000/api/sessions",
+      `${API_BASE_URL}/api/sessions`,
       {
         method: "POST",
 

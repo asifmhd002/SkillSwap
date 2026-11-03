@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./dashboard.css";
 import Footer from "../components/Footer";
+import API_BASE_URL from "../api";
 
 function Dashboard() {
 
@@ -34,7 +35,7 @@ function Dashboard() {
         // =========================
 
         const userResponse = await fetch(
-          "http://127.0.0.1:5000/api/auth/me",
+          `${API_BASE_URL}/api/auth/me`,
           {
             method: "GET",
             headers,
@@ -57,7 +58,7 @@ function Dashboard() {
         // =========================
 
         const walletResponse = await fetch(
-          "http://127.0.0.1:5000/api/wallet",
+          `${API_BASE_URL}/api/wallet`,
           {
             method: "GET",
             headers,
@@ -79,7 +80,7 @@ function Dashboard() {
         // =========================
 
         const sessionsResponse = await fetch(
-          "http://127.0.0.1:5000/api/sessions",
+          `${API_BASE_URL}/api/sessions`,
           {
             method: "GET",
             headers,
@@ -101,7 +102,7 @@ function Dashboard() {
         // =========================
 
         const transactionsResponse = await fetch(
-          "http://127.0.0.1:5000/api/wallet/transactions",
+          `${API_BASE_URL}/api/wallet/transactions`,
           {
             method: "GET",
             headers,

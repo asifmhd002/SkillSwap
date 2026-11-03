@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./sessions.css";
 import Footer from "../components/Footer";
+import API_BASE_URL from "../api";
 
 function Sessions() {
   const [sessions, setSessions] = useState([]);
@@ -34,7 +35,7 @@ function Sessions() {
         }
 
         const response = await fetch(
-          "http://127.0.0.1:5000/api/sessions",
+          `${API_BASE_URL}/api/sessions`,
           {
             method: "GET",
             headers: {

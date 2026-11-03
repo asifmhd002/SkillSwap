@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./sessiondetails.css";
 import Footer from "../components/Footer";
+import API_BASE_URL from "../api";
 
 function SessionDetails() {
   const [session, setSession] = useState(null);
@@ -38,7 +39,7 @@ function SessionDetails() {
         }
 
         const response = await fetch(
-          `http://127.0.0.1:5000/api/sessions/${sessionId}`,
+          `${API_BASE_URL}/api/sessions/${sessionId}`,
           {
             method: "GET",
             headers: {
@@ -196,7 +197,7 @@ function SessionDetails() {
       }
 
       const response = await fetch(
-        `http://127.0.0.1:5000/api/sessions/${session._id}`,
+        `${API_BASE_URL}/api/sessions/${session._id}`,
         {
           method: "DELETE",
           headers: {
@@ -271,7 +272,7 @@ const handleMessagePerson = async () => {
 
     // Find existing conversation or create a new one
     const response = await fetch(
-      "http://127.0.0.1:5000/api/messages/conversations",
+      `${API_BASE_URL}/api/messages/conversations`,
       {
         method: "POST",
         headers: {

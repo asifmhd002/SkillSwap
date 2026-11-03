@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import AvailabilityModal from "../components/AvailabilityModal";
 import profileImage from "../assets/usersampledp.jpg";
 import "./profile.css";
+import API_BASE_URL from "../api";
 
 function Profile() {
 
@@ -17,7 +18,7 @@ function Profile() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://127.0.0.1:5000/api/profile/",
+        `${API_BASE_URL}/api/profile/`,
         {
           headers: {
             Authorization: "Bearer " + token,
@@ -44,7 +45,7 @@ function Profile() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://127.0.0.1:5000/api/profile/availability",
+        `${API_BASE_URL}/api/profile/availability`,
         {
           headers: {
             Authorization: "Bearer " + token,
@@ -109,7 +110,7 @@ function Profile() {
     const token = localStorage.getItem("token");
 
     const response = await fetch(
-      "http://127.0.0.1:5000/api/profile/availability",
+      `${API_BASE_URL}/api/profile/availability`,
       {
         method: "PUT",
         headers: {
@@ -230,7 +231,7 @@ function Profile() {
               <img
   src={
     profile?.profile_picture
-      ? `http://127.0.0.1:5000/uploads/profile_pictures/${profile.profile_picture}`
+      ? `${API_BASE_URL}/uploads/profile_pictures/${profile.profile_picture}`
       : profileImage
   }
   alt="Profile"

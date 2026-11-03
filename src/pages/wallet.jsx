@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import "./wallet.css";
+import API_BASE_URL from "../api";
 
 function Wallet() {
   const [wallet, setWallet] = useState({
@@ -26,13 +27,13 @@ function Wallet() {
     const fetchWalletData = async () => {
       try {
         const [walletResponse, transactionsResponse] = await Promise.all([
-          fetch("http://127.0.0.1:5000/api/wallet", {
+          fetch(`${API_BASE_URL}/api/wallet`, {
             headers: {
               Authorization: "Bearer " + token,
             },
           }),
 
-          fetch("http://127.0.0.1:5000/api/wallet/transactions", {
+          fetch(`${API_BASE_URL}/api/wallet/transactions`, {
             headers: {
               Authorization: "Bearer " + token,
             },

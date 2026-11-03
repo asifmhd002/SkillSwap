@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import Footer from "../components/Footer";
 import "./settings.css";
+import API_BASE_URL from "../api";
 
 function Settings() {
   const [photoMessage, setPhotoMessage] = useState("");
@@ -39,7 +40,7 @@ function Settings() {
       formData.append("profile_picture", file);
 
       const response = await fetch(
-        "http://127.0.0.1:5000/api/profile/picture",
+        `${API_BASE_URL}/api/profile/picture`,
         {
           method: "POST",
           headers: {

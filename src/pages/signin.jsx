@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./signin.css";
 import ForgotPassword from "./forgotpassword";
+import API_BASE_URL from "../api";
 
 function Signin({ onClose }) {
   const [activeTab, setActiveTab] = useState("signin");
@@ -25,7 +26,7 @@ const handleLogin = async (e) => {
   setLoginError("");
 
   try {
-    const response = await fetch("http://127.0.0.1:5000/api/auth/login", {
+    const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -70,7 +71,7 @@ const handleSignup = async (e) => {
 
   try {
    const response = await fetch(
-  "http://127.0.0.1:5000/api/auth/register",
+  `${API_BASE_URL}/api/auth/register`,
   {
     method: "POST",
     headers: {
