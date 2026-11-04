@@ -21,14 +21,17 @@ app = Flask(__name__)
 # CORS
 # -----------------------------
 
-CORS(
-    app,
-    resources={
-        r"/api/*": {
-            "origins": "http://localhost:5173"
-        }
-    }
-)
+frontend_url = os.getenv("FRONTEND_URL", "http://localhost:5173")
+
+allowed_origins = [
+    frontend_url,
+    "http://localhost:5173"
+]
+
+CORS(app, resources={
+    r"/api/*": {"origins": allowed_origins},
+    r"/uploads/*": {"origins": allowed_origins}
+})
 
 
 # -----------------------------
