@@ -21,7 +21,10 @@ app = Flask(__name__)
 # CORS
 # -----------------------------
 
-frontend_url = os.getenv("FRONTEND_URL", "http://localhost:5173")
+frontend_url = os.getenv(
+    "FRONTEND_URL",
+    "https://skillswap-frontend-gbw2.onrender.com"
+)
 
 allowed_origins = [
     frontend_url,
