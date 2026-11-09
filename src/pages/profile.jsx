@@ -230,12 +230,14 @@ function Profile() {
             <div className="profile-picture">
               <img
   src={
-    profile?.profile_picture
-      ? `${API_BASE_URL}/uploads/profile_pictures/${profile.profile_picture}`
-      : profileImage
-  }
-  alt="Profile"
-  className="profile-avatar"
+  profile?.profile_picture
+    ? (
+        profile.profile_picture.startsWith("http")
+          ? profile.profile_picture
+          : `${API_BASE_URL}/uploads/profile_pictures/${profile.profile_picture}`
+      )
+    : profileImage
+}
 />
             </div>
 
