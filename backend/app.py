@@ -3,6 +3,7 @@ from flask_cors import CORS
 from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
+import cloudinary
 
 from routes.auth import auth_bp
 from routes.profile import profile_bp
@@ -15,6 +16,15 @@ from routes.matching import matching_bp
 load_dotenv(dotenv_path=".env")
 
 app = Flask(__name__)
+
+# CLOUDINARY CONFIGURATION
+
+cloudinary.config(
+    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.getenv("CLOUDINARY_API_KEY"),
+    api_secret=os.getenv("CLOUDINARY_API_SECRET"),
+    secure=True
+)
 
 
 # -----------------------------

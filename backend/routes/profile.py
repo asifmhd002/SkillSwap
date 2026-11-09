@@ -1,7 +1,9 @@
 from flask import Blueprint, jsonify, request
 from utils.auth import token_required
-import os
+import cloudinary.uploader
 import uuid
+
+
 
 
 profile_bp = Blueprint("profile", __name__)
@@ -118,6 +120,83 @@ def upload_profile_picture():
     from app import db
 
     user_id = request.user["user_id"]
+
+    # Check uploaded file
+    if "profile_picture" not in request.files:
+        return jsonify({"error": "No profile picture was uploaded"}), 400
+
+    file = request.files["profile_picture"]
+
+    if not file.filename:
+        return jsonify({"error": "No file selected"}), 400
+
+    # Check file type
+    if not file.mimetype or not file.mimetype.startswith("image/"):
+        return jsonify({"error": "Only image files are allowed"}), 400
+
+    # Check file size
+    max_size = 1.5 * 1024 * 1024
+
+    file.seek(0, 2)
+    file_size = file.tell()
+    file.seek(0)
+
+    if file_size > max_size:
+        return jsonify({
+            "error": "Profile picture must be 1.5 MB or smaller"
+        }), 400
+
+    # Get existing profile
+    old_profile = db.profiles.find_one(
+        {"user_id": user_id},
+        {"profile_picture_public_id": 1}
+    )
+
+    old_public_id = (
+        old_profile.get("profile_picture_public_id")
+        if old_profile else None
+    )
+
+    try:
+        # Upload image to Cloudinary
+        upload_result = cloudinary.uploader.upload(
+            file,
+            folder="skillswap/profile_pictures",
+            public_id=f"user_{user_id}_{uuid.uuid4().hex}",
+            resource_type="image"
+        )
+
+        image_url = upload_result["secure_url"]
+        public_id = upload_result["public_id"]
+
+        # Save image URL in MongoDB
+        db.profiles.update_one(
+            {"user_id": user_id},
+            {
+                "$set": {
+                    "profile_picture": image_url,
+                    "profile_picture_public_id": public_id
+                }
+            },
+            upsert=True
+        )
+
+        # Delete previous Cloudinary image if available
+        if old_public_id:
+            cloudinary.uploader.destroy(old_public_id)
+
+        return jsonify({
+            "message": "Profile picture uploaded successfully!",
+            "profile_picture": image_url
+        }), 200
+
+    except Exception as error:
+
+        print("Profile picture upload error:", error)
+
+        return jsonify({
+            "error": "Failed to upload profile picture"
+        }), 500
 
     # -------------------------
     # Check uploaded file
